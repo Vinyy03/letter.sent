@@ -1,0 +1,558 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+/* Floating Hearts Animation */
+.floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    color: rgba(255, 75, 75, 0.6);
+    animation: float 6s ease-in infinite;
+    user-select: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Main Card */
+.card {
+    background: white;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+    cursor: pointer;
+}
+
+.card-front {
+    text-align: center;
+    transition: opacity 0.3s;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Envelope Design */
+.envelope {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(145deg, #ff6b6b, #ff4757);
+    border-radius: 20px;
+    margin: 0 auto 30px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.heart-stamp {
+    font-size: 60px;
+    animation: wobble 0.5s infinite;
+}
+
+@keyframes wobble {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+}
+
+.title {
+    font-size: 2.5em;
+    color: #ff4757;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(255,71,87,0.2);
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.open-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ff4757);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 10px 20px rgba(255,71,87,0.3);
+}
+
+.open-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255,71,87,0.4);
+}
+
+/* Card Inside Styles */
+.card-inside {
+    display: block;
+    animation: fadeIn 0.6s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Message Box Styles */
+.message-box {
+    background: linear-gradient(145deg, #fff9f9, #fff0f0);
+    border-radius: 30px;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 15px 35px rgba(255, 71, 87, 0.15);
+    border: 2px solid rgba(255, 71, 87, 0.2);
+    margin: 20px 0;
+}
+
+.heart-decoration {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    background: white;
+    padding: 0 20px;
+    border-radius: 50px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.message-title {
+    color: #ff4757;
+    font-size: 2em;
+    margin-bottom: 25px;
+    text-align: center;
+    font-family: 'Georgia', serif;
+    letter-spacing: 2px;
+}
+
+.typed-message {
+    font-size: 1.3em;
+    line-height: 1.8;
+    color: #2d3436;
+    margin-bottom: 30px;
+    min-height: 120px;
+    font-family: 'Courier New', monospace;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 20px;
+    border-left: 5px solid #ff4757;
+    font-style: italic;
+}
+
+.signature {
+    text-align: right;
+    font-size: 1.3em;
+    color: #ff4757;
+    font-family: 'Georgia', serif;
+    border-top: 2px dashed #ff4757;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+/* Question Box */
+.question-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+    z-index: 100;
+    text-align: center;
+    animation: slideIn 0.5s;
+    border: 3px solid #ff4757;
+}
+
+@keyframes slideIn {
+    from { transform: translate(-50%, -30%); opacity: 0; }
+    to { transform: translate(-50%, -50%); opacity: 1; }
+}
+
+.question-content h3 {
+    font-size: 2em;
+    color: #ff4757;
+    margin-bottom: 30px;
+}
+
+.answer-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.yes-btn, .no-btn {
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.yes-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ff4757);
+    color: white;
+    box-shadow: 0 10px 20px rgba(255,71,87,0.3);
+}
+
+.yes-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 30px rgba(255,71,87,0.4);
+}
+
+.no-btn {
+    background: #666;
+    color: white;
+    position: relative;
+}
+
+.no-btn:hover {
+    background: #444;
+    transform: scale(0.95);
+}
+
+/* Celebration Screen */
+.celebration {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 75, 75, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.5s;
+}
+
+.love-message {
+    text-align: center;
+    color: white;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.love-message h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.read-letter-btn {
+    background: white;
+    color: #ff4757;
+    border: 2px solid white;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.read-letter-btn:hover {
+    background: transparent;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Confetti Animation */
+.confetti {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.confetti::before {
+    content: '🎉 🎊 💝 💖 💘 ❤️';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    animation: confetti-fall 10s linear infinite;
+}
+
+@keyframes confetti-fall {
+    from { transform: translateY(-100px) rotate(0deg); }
+    to { transform: translateY(100vh) rotate(360deg); }
+}
+
+/* Love Letter Styles */
+.love-letter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 600px;
+    z-index: 2000;
+    animation: letterAppear 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes letterAppear {
+    0% {
+        transform: translate(-50%, -30%) scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+.letter-content {
+    background: transparent;
+    padding: 20px;
+}
+
+.letter-paper {
+    background: #fffef7;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    position: relative;
+    border: 1px solid rgba(255, 71, 87, 0.3);
+    background-image: 
+        linear-gradient(#fffef7 90%, rgba(255, 71, 87, 0.05) 100%),
+        repeating-linear-gradient(45deg, 
+            rgba(255, 71, 87, 0.02) 0px, 
+            rgba(255, 71, 87, 0.02) 2px,
+            transparent 2px, 
+            transparent 8px
+        );
+}
+
+.letter-paper::before {
+    content: '💝';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    font-size: 30px;
+    transform: rotate(-15deg);
+}
+
+.letter-paper::after {
+    content: '💕';
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+    font-size: 30px;
+    transform: rotate(15deg);
+}
+
+.letter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    color: #ff4757;
+    font-size: 0.9em;
+    border-bottom: 2px dashed #ffd7d7;
+    padding-bottom: 15px;
+}
+
+.date {
+    font-family: 'Courier New', monospace;
+    font-style: italic;
+    color: #888;
+}
+
+.heart-icon {
+    font-size: 24px;
+    animation: pulse 1.5s infinite;
+}
+
+.letter-greeting {
+    font-size: 2em;
+    color: #ff4757;
+    margin-bottom: 25px;
+    font-family: 'Georgia', serif;
+    text-shadow: 2px 2px 4px rgba(255, 71, 87, 0.1);
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.letter-body {
+    font-size: 1.1em;
+    line-height: 1.9;
+    color: #2d3436;
+    font-family: 'Georgia', serif;
+    margin-bottom: 30px;
+}
+
+.letter-body p {
+    margin-bottom: 20px;
+    text-indent: 30px;
+    position: relative;
+}
+
+.letter-body p::first-letter {
+    font-size: 1.5em;
+    color: #ff4757;
+    font-weight: bold;
+}
+
+.letter-footer {
+    margin-top: 40px;
+    text-align: right;
+    border-top: 2px solid #ffd7d7;
+    padding-top: 25px;
+}
+
+.letter-footer p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.letter-footer .signature {
+    font-size: 1.4em;
+    color: #ff4757;
+    font-family: 'Brush Script MT', cursive;
+    border: none;
+    margin-top: 5px;
+    padding-top: 0;
+}
+
+.close-letter-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ff4757);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: 100%;
+    transition: all 0.3s;
+    box-shadow: 0 10px 20px rgba(255, 71, 87, 0.3);
+    font-weight: bold;
+}
+
+.close-letter-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 71, 87, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        padding: 20px;
+    }
+    
+    .title {
+        font-size: 2em;
+    }
+    
+    .message-box {
+        padding: 30px 20px;
+    }
+    
+    .message-title {
+        font-size: 1.5em;
+    }
+    
+    .typed-message {
+        font-size: 1em;
+        min-height: 150px;
+    }
+    
+    .question-content h3 {
+        font-size: 1.5em;
+    }
+    
+    .answer-buttons {
+        flex-direction: column;
+    }
+    
+    .love-message h1 {
+        font-size: 2em;
+    }
+    
+    .letter-paper {
+        padding: 25px;
+    }
+    
+    .letter-greeting {
+        font-size: 1.5em;
+    }
+    
+    .letter-body {
+        font-size: 1em;
+        line-height: 1.7;
+    }
+    
+    .letter-footer .signature {
+        font-size: 1.2em;
+    }
+    
+    .close-letter-btn {
+        padding: 12px 30px;
+        font-size: 1.1em;
+    }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You have a Mail 💌</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Floating hearts background -->
+        <div class="floating-hearts" id="floatingHearts"></div>
+        
+        <!-- Main Card -->
+        <div class="card" id="valentineCard">
+            <div class="card-front">
+                <div class="envelope">
+                    <div class="heart-stamp">💌</div>
+                </div>
+                <h1 class="title">You Have Mail! 💝</h1>
+                <p class="subtitle">Click to open your message</p>
+                <button class="open-btn" id="openBtn">Open Message</button>
+            </div>
+            
+            <div class="card-inside hidden" id="cardInside">
+                <div class="message-box">
+                    <div class="heart-decoration">💕</div>
+                    <h2 class="message-title">Hi Baby!,</h2>
+                    <div class="typed-message" id="typingMessage"></div>
+                    <div class="signature">Marvin ❤️</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Hidden answer section that appears after interaction -->
+        <div class="question-box hidden" id="questionBox">
+            <div class="question-content">
+                <h3>Will you be my Valentine?</h3>
+                <div class="answer-buttons">
+                    <button class="yes-btn" id="yesBtn">Yes! 💖</button>
+                    <button class="no-btn" id="noBtn">No</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Love Letter after saying Yes -->
+        <div class="love-letter hidden" id="loveLetter">
+            <div class="letter-content">
+                <div class="letter-paper">
+                    <div class="letter-header">
+                        <span class="date">February 12, 2026</span>
+                        <span class="heart-icon">❤️</span>
+                    </div>
+                    <h2 class="letter-greeting">To Janice C. Abendano,</h2>
+                    <div class="letter-body">
+                        <p>Hi Baby!, I love you so much. Sobrang ganda mo po and I'm so lucky to have you.</p>
+                        <p>Do well lagi sa duty and pahinga ka po. Ako na po bahala maglinis and puntahan kita lagi.</p>
+                        <p>I will always support you and be there for you no matter what. Pasensya na rin na minsan sumasakit ulo mo sakin hehehe.</p>
+                        <p>Thank you for saying yes. Thank you for being you.</p>
+                    </div>
+                    <div class="letter-footer">
+                        <p>Forever yours,</p>
+                        <p class="signature">Marvin 💝</p>
+                    </div>
+                </div>
+            </div>
+            <button class="close-letter-btn" id="closeLetterBtn">Close Letter ✨</button>
+        </div>
+        
+        <!-- Celebration overlay -->
+        <div class="celebration hidden" id="celebration">
+            <div class="confetti"></div>
+            <div class="love-message">
+                <h1>Yay! You said Yes! 🎉💝</h1>
+                <p>Happy Valentine's Day!</p>
+                <button class="read-letter-btn" id="readLetterBtn">Read Your Love Letter 💌</button>
+            </div>
+        </div>
+    </div>
+    
+    <audio id="valentineMusic" loop>
+        <source src="0212.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
